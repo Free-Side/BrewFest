@@ -1,0 +1,18 @@
+<?php
+
+define('ROOT',dirname( __FILE__ ).DIRECTORY_SEPARATOR);
+define('CONFIG',ROOT.'site'.DIRECTORY_SEPARATOR);
+
+require_once (CONFIG.'config.php');
+
+// You can create .php files like this in the ext folder and they will be
+// automatically deployed to your docker image.
+
+echo "Configured<br />";
+
+echo "hostname: " . $hostname . "<br />";
+echo "port: " . $database_port . "<br />";
+echo "database: " . $database . "<br />";
+echo "username: " . $username . "<br />";
+
+?>

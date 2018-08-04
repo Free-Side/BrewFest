@@ -1,0 +1,43 @@
+version: '3'
+
+services:
+  brewfest-mysql:
+    image: mysql:5.5
+    container_name: brewfest-mysql
+    restart: always
+    ports:
+      - "${MYSQL_HOST_PORT-3306}:3306"
+    volumes:
+      - brewfest-mysql-volume:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_PASSWORD-brewfest}
+    networks:
+      - services
+  brewfest-www:
+    build: ./web
+    container_name: brewfest-www
+    restart: always
+    ports:
+      - "80:80"
+    volumes:
+      - brewfest-www-log:/var/log
+    environment:
+      - MYSQL_HOSTNAME=brewfest-mysql
+      - MYSQL_PORT=3306
+      - MYSQL_USERNAME=root
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD-brewfest}
+      - MYSQL_DATABASE=${MYSQL_DATABASE-brewfest}
+      - INSTANCE_ID=brewfest
+    networks:
+      - services
+    depends_on:
+      - brewfest-mysql
+
+networks:
+  services:
+
+volumes:
+  brewfest-mysql-volume:
+    external: true
+  brewfest-www-log:
+    external: true

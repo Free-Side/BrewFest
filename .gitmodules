@@ -1,0 +1,3 @@
+[submodule "web/brewcompetitiononlineentry"]
+	path = web/brewcompetitiononlineentry
+	url = git@github.com:geoffhumphrey/brewcompetitiononlineentry.git
