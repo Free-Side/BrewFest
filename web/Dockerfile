@@ -14,7 +14,13 @@ RUN apt-get update && \
 # Install PHP
 
 RUN apt-get update && \
-    DEBIAN_FRONTEND=noninteractive apt-get install -y php5 php5-mysqlnd libapache2-mod-php5 && \
+    DEBIAN_FRONTEND=noninteractive apt-get install -y php5 php5-mysqlnd libapache2-mod-php5 php5-curl && \
+    rm -rf /var/lib/apt/lists/*
+
+# Install msmtp
+
+RUN apt-get update && \
+    DEBIAN_FRONTEND=noninteractive apt-get install -y msmtp msmtp-mta && \
     rm -rf /var/lib/apt/lists/*
 
 # Begin Apache Configuration
@@ -35,11 +41,15 @@ RUN a2dismod mpm_event && a2enmod mpm_prefork && a2enmod rewrite && a2enmod head
 
 # End Apache Configuration
 
+# Begin PHP Configuration
+
+RUN sed -E -i.bak \
+      -e "s#;?sendmail_path.*\$#sendmail_path = \"/usr/bin/msmtp -C /etc/msmtp.conf/msmtprc -a mailgun -t\"#" /etc/php5/apache2/php.ini
+
+# End PHP Configuration
+
 # Install Brew Competition Online Entry & Management
 COPY ./brewcompetitiononlineentry/ /var/www/html/
-
-# Deploy Local Customizations
-COPY ./web/ext/*.php /var/www/html/
 
 WORKDIR /var/www/html
 
@@ -47,6 +57,8 @@ RUN sed -E -i.bak \
       -e "s/\\\$(hostname|database_port|username|password|database) = .*;/\$\\1 = getenv(\"MYSQL_\\U\\1\\E\");/" \
       -e "s/\\\$instance_id = \"\";/\$instance_id = getenv(\"INSTANCE_ID\");/" site/config.php
 
+VOLUME /var/www/html/ext
+VOLUME /etc/msmtp.conf
 VOLUME /var/log
 
 EXPOSE 80

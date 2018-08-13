@@ -21,6 +21,8 @@ services:
       - "80:80"
     volumes:
       - brewfest-www-log:/var/log
+      - ./web/ext:/var/www/html/ext
+      - ./web/msmtp.conf:/etc/msmtp.conf
     environment:
       - MYSQL_HOSTNAME=brewfest-mysql
       - MYSQL_PORT=3306
