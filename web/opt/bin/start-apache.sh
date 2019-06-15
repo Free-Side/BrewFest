@@ -11,8 +11,10 @@ chgrp www-data /var/log/msmtp.log
 chmod g+w /var/log/msmtp.log
 
 # make user_* data directories accessible to www-data
-chgrp www-data /var/www/html/user_*
-chmod g+w /var/www/html/user_*
+chgrp www-data /var/www/registration/user_*
+chmod g+w /var/www/registration/user_*
+chgrp www-data /var/www/results2018/user_*
+chmod g+w /var/www/results2018/user_*
 
 rm -f "$APACHE_PID_FILE"
 /usr/sbin/apache2 &

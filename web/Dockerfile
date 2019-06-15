@@ -48,22 +48,46 @@ RUN sed -E -i.bak \
 
 # End PHP Configuration
 
-# Install Brew Competition Online Entry & Management
-COPY ./brewcompetitiononlineentry/ /var/www/html/
+# Install Brew Competition Online Entry & Management - Registration
+COPY ./brewcompetitiononlineentry/ /var/www/registration/
 
-WORKDIR /var/www/html
+WORKDIR /var/www/registration
 
 RUN sed -E -i.bak \
-      -e "s/\\\$(hostname|database_port|username|password|database) = .*;/\$\\1 = getenv(\"MYSQL_\\U\\1\\E\");/" \
-      -e "s/\\\$instance_id = \"\";/\$instance_id = getenv(\"INSTANCE_ID\");/" site/config.php
+      -e "s/\\\$(hostname|database_port|username|password) = .*;/\$\\1 = getenv(\"MYSQL_\\U\\1\\E\");/" \
+      -e "s/\\\$database = .*;/\$database = getenv(\"MYSQL_DATABASE_REGISTRATION\");/" \
+      -e "s/\\\$setup_free_access = .*;/\$setup_free_access = (getenv(\"SETUP_MODE\") === \"TRUE\");/" \
+      -e "s/\\\$installation_id = \"\";/\$installation_id = getenv(\"INSTANCE_ID\") . \"_registration\" ;/" site/config.php
 
-VOLUME /var/www/html/ext
+VOLUME /var/www/registration/ext
+
+VOLUME /var/www/registration/user_images
+VOLUME /var/www/registration/user_docs
+VOLUME /var/www/registration/user_temp
+
+# Install Brew Competition Online Entry & Management - Results2018
+COPY ./brewcompetitiononlineentry/ /var/www/results2018/
+
+WORKDIR /var/www/results2018
+
+RUN sed -E -i.bak \
+      -e "s/\\\$(hostname|database_port|username|password) = .*;/\$\\1 = getenv(\"MYSQL_\\U\\1\\E\");/" \
+      -e "s/\\\$database = .*;/\$database = getenv(\"MYSQL_DATABASE_RESULTS2018\");/" \
+      -e "s/\\\$setup_free_access = .*;/\$setup_free_access = (getenv(\"SETUP_MODE\") === \"TRUE\");/" \
+      -e "s/\\\$installation_id = \"\";/\$installation_id = getenv(\"INSTANCE_ID\") . \"_results2018\" ;/" site/config.php
+
+VOLUME /var/www/results2018/ext
+
+VOLUME /var/www/results2018/user_images
+VOLUME /var/www/results2018/user_docs
+VOLUME /var/www/results2018/user_temp
+
+# general use volumes
+
 VOLUME /etc/msmtp.conf
 VOLUME /var/log
 
-VOLUME /var/www/html/user_images
-VOLUME /var/www/html/user_docs
-VOLUME /var/www/html/user_temp
+WORKDIR /var/www/
 
 EXPOSE 80
 CMD ["/opt/bin/start-apache.sh"]

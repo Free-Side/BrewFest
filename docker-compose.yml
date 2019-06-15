@@ -23,16 +23,21 @@ services:
       - brewfest-www-log:/var/log
       - ./web/ext:/var/www/html/ext
       - ./web/msmtp.conf:/etc/msmtp.conf
-      - ./user_images:/var/www/html/user_images
-      - ./user_docs:/var/www/html/user_docs
-      - ./user_temp:/var/www/html/user_temp
+      - ./user_images_2019:/var/www/registration/user_images
+      - ./user_docs_2019:/var/www/registration/user_docs
+      - ./user_temp_2019:/var/www/registration/user_temp
+      - ./user_images:/var/www/results2018/user_images
+      - ./user_docs:/var/www/results2018/user_docs
+      - ./user_temp:/var/www/results2018/user_temp
     environment:
-      - MYSQL_HOSTNAME=brewfest-mysql
-      - MYSQL_PORT=3306
+      - MYSQL_HOSTNAME=${MYSQL_HOSTNAME-brewfest-mysql}
+      - MYSQL_DATABASE_PORT=${MYSQL_DATABASE_PORT-3306}
       - MYSQL_USERNAME=root
       - MYSQL_PASSWORD=${MYSQL_PASSWORD-brewfest}
-      - MYSQL_DATABASE=${MYSQL_DATABASE-brewfest}
+      - MYSQL_DATABASE_REGISTRATION=${MYSQL_DATABASE_REGISTRATION-brewfest2019}
+      - MYSQL_DATABASE_RESULTS2018=${MYSQL_DATABASE_RESULTS2018-brewfest}
       - INSTANCE_ID=brewfest
+      - SETUP_MODE=${SETUP_MODE-FALSE}
     networks:
       - services
     depends_on:
