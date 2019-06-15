@@ -23,6 +23,9 @@ services:
       - brewfest-www-log:/var/log
       - ./web/ext:/var/www/html/ext
       - ./web/msmtp.conf:/etc/msmtp.conf
+      - ./user_images:/var/www/html/user_images
+      - ./user_docs:/var/www/html/user_docs
+      - ./user_temp:/var/www/html/user_temp
     environment:
       - MYSQL_HOSTNAME=brewfest-mysql
       - MYSQL_PORT=3306

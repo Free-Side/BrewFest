@@ -61,5 +61,9 @@ VOLUME /var/www/html/ext
 VOLUME /etc/msmtp.conf
 VOLUME /var/log
 
+VOLUME /var/www/html/user_images
+VOLUME /var/www/html/user_docs
+VOLUME /var/www/html/user_temp
+
 EXPOSE 80
 CMD ["/opt/bin/start-apache.sh"]
