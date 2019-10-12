@@ -1,0 +1,28 @@
+{
+  "name": "brewoahu",
+  "version": "1.0.0",
+  "description": "The Brew Oahu Homebrew Competition",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sflanker/BrewFest.git"
+  },
+  "keywords": [
+    "Eleventy",
+    "11ty",
+    "webpage"
+  ],
+  "author": "Paul Wheeler",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sflanker/BrewFest/issues"
+  },
+  "homepage": "http://www.brewoahu.com/",
+  "dependencies": {
+    "handlebars": "^4.1.2",
+    "moment": "^2.24.0"
+  }
+}
