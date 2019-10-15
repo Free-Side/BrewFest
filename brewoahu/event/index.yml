@@ -1,0 +1,52 @@
+introduction: |
+  Join the HIP Fermenters @ Homebrew in Paradise for the first annual Oahu Brew Camp in celebration of National Learn to Homebrew Day. Oahu Brew Camp is a <strong>free</strong> event, open to the public, to celebrate and learn about home brewing. This event is <strong>family friendly</strong>, and we will even have a bouncy house set up for the kids!
+activities:
+  - time: 12 - 5 p.m.
+    activity: Brewing Demonstration
+    section: brewing-demo
+  - time: 1 - 2 p.m.
+    activity: Chili Cook-off
+    section: chili-cook-off
+  - time: 2 - 3 p.m.
+    activity: Professional Brewer Talk and Q&A
+  - time: 3 - 4 p.m.
+    activity: Winners of the Brew Oahu Competition Announced
+  - time: 4 - 5 p.m.
+    activity: Homebrew Club Presentations
+    section: club-presentations
+location:
+  name: Homebrew in Paradise
+  address: 740 Moowaa St., Honolulu, HI 96817
+sections:
+  - id: sponsors
+    title: Mahalo to Our Sponsors!
+    content: |
+      <img src="/images/sponsors.png" alt="Homebrew in Paradise, INU Island Ales, Lanikai Brewing Co., Village Bottle Shop, Aloha Beer Co., Waikiki Brewing Co., Square Barrels, Paradise Ciders" />
+  - id: brewing-demo
+    title: Brewing Demo
+    backgroundImage: /images/brew-demo.jpg
+    backgroundStyle: 'filter: brightness(0.5) saturate(0.5)'
+    contentStyle: 'color: white'
+    content: |
+      <p>
+        HIP Fermenters member Paul Wheeler will be brewing a 5 gallon batch on his manual all grain system. Stop by any time to see the process, ask questions, or lend a hand.
+      </p>
+  - id: chili-cook-off
+    title: Chili Cook-Off
+    content: |
+      <p>
+        You don't have to be a brewer to win a prize at this competition! Bring a batch of your best homemade chili to enter in our chili cook off. Or just bring your appetite, sample the chilies, and vote for your favorite. There is no fee for entry and the winner will receive a $100 gift card to a local restaurant or brewery. Please bring your entry in between noon and 12:30 so we get get everything organized.
+      </p>
+  - id: club-presentations
+    title: HIP Fermenters Homebrew Club Presentations
+    backgroundImage: /images/club-presentation.jpg
+    backgroundStyle: 'filter: brightness(0.5) saturate(0.5)'
+    contentStyle: 'color: white'
+    content: |
+      <p>
+        Experience a brief snippet of our monthly Homebrew Club meeting content. We will be sharing four brief presentations or demos including:
+      </p>
+      <ul>
+        <li>How to Brew Homemade Ginger Beer (non alcoholic).</li>
+        <li>Mock BJCP home brew judging session.</li>
+      </ul>

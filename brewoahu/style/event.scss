@@ -1,0 +1,95 @@
+/*---
+permalink: style/event.css
+---*/
+
+@import url('https://fonts.googleapis.com/css?family=Italianno&display=swap');
+
+@font-face {
+  font-family: 'American Brewery Rough';
+  font-style: normal;
+  font-weight: 400;
+  src: local('American Brewery Rough'), url('/files/american-brewery-rough.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'American Brewery Rough 2';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/files/american-brewery-rough2.woff2') format('woff2');
+}
+
+.hero-component--content {
+  font-size: 1.2rem;
+
+  #overview-background {
+    background-image: url(/images/event-background.png);
+    background-color: lightgray;
+    filter: brightness(0.8);
+  }
+
+  .h1 {
+    font-weight: 700;
+    text-align: center;
+  }
+
+  #title {
+    position: relative;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: 'American Brewery Rough','Times New Roman', Times, serif;
+
+    .title-extras {
+      font-family: 'Italianno', cursive;
+      font-size: 1.8rem;
+      font-weight: normal;
+      color: #333;
+    }
+  }
+
+  #title-preface {
+    position: absolute;
+    top: 30px;
+  }
+
+  #title-date {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+  }
+
+  #title-year {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+
+  img.inline-logo {
+    width: 15vw;
+    height: auto;
+  }
+
+  .welcome-text {
+    font-size: 1.2rem;
+  }
+
+  div.event-detail {
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 20px;
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: underline;
+    }
+  }
+
+  a {
+    color: #d5a713;
+  }
+}

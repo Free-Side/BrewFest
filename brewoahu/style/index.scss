@@ -1,0 +1,24 @@
+/*---
+permalink: style/index.css
+---*/
+
+.hero-component--fixed-background {
+  filter: brightness(0.5) saturate(0.5);
+}
+
+.hero-component--content {
+  color: white;
+
+  .h1 {
+    font-weight: 700;
+    text-align: center;
+  }
+
+  .welcome-text {
+    font-size: 1.2rem;
+  }
+
+  a {
+    color: #d5a713;
+  }
+}

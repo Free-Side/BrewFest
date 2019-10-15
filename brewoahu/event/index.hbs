@@ -1,0 +1,71 @@
+/*---
+layout: master.hbs
+title: 2019 Oahu Brew Camp
+description: Official Homepage of the HIP Fermenters Brew Oahu Homebrew Competition.
+head: |
+  <link href="/style/event.css" rel="stylesheet" type="text/css">
+---*/
+
+<section class="hero" data-position="101">
+  <div class="component-wrapper hero-component--wrapper-fitcontent">
+    <div id="overview-background" class="bg sib hero-component--fixed-background"
+         style="background-image: url('/images/event-background.png');"></div>
+    <div class="hero-component--content">
+      <div id="title" class="h-font h1">
+        <span id="title-preface" class="title-extras">Oahu</span>
+        Brew
+        <img src="/images/brew-camp-logo.svg" width="244" height="327" alt="" class="inline-logo" />
+        Camp
+        <span id="title-date" class="title-extras">Saturday<br />Nov 2nd</span>
+        <span id="title-year" class="title-extras">2019</span>
+      </div>
+      <p class="welcome-text">{{{introduction}}}</p>
+      <div id="activities" class="event-detail">
+        <h2>Activities</h2>
+        <table>
+          {{#each activities}}
+            <tr>
+              <td>{{time}}</td>
+              <td>
+                {{#if section}}
+                  <a href="#{{section}}">{{activity}}</a>
+                {{else}}
+                  {{activity}}
+                {{/if}}
+              </td>
+            </tr>
+          {{/each}}
+        </table>
+      </div>
+      <div id="location" class="event-detail">
+        <h2>Location</h2>
+        <h3>{{location.name}}</h3>
+        <p><a href="#location">{{location.address}}</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+{{#each sections}}
+<section class="hero" id="{{id}}">
+  {{#if backgroundImage}}
+    <div class="bg sib hero-component--fixed-background"
+         style="background-image: url('{{backgroundImage}}'); {{backgroundStyle}}"></div>
+  {{/if}}
+  <div class="component-wrapper hero-component--wrapper-fitcontent">
+    <div class="hero-component--content"
+         {{#if contentStyle}}style="{{contentStyle}}"{{/if}}>
+      <h1>{{title}}</h1>
+      {{{content}}}
+    </div>
+  </div>
+</section>
+{{/each}}
+<section id="location" class="map" data-position="109">
+  <div class="map-component--component-wrapper component-wrapper">
+    <div class="map-component--inner">
+      <div class="map-iframe-wrapper">
+        <iframe width="100%" height="400" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJG4-kc2RuAHwRleHoDCmral4&key={{environment.googleMapsApiKey}}" allowfullscreen="allowfullscreen"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
