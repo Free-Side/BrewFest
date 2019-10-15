@@ -96,6 +96,17 @@ permalink: style/event.css
   }
 }
 
+#activities {
+  td:first-child {
+    white-space: nowrap;
+  }
+
+  tr {
+    vertical-align: top;
+    margin-bottom: 10px;
+  }
+}
+
 
 @media (max-width: 456px) {
   #title {
