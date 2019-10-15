@@ -49,7 +49,7 @@ permalink: style/event.css
 
   #title-preface {
     position: absolute;
-    top: 30px;
+    top: 10%;
   }
 
   #title-date {
@@ -67,6 +67,8 @@ permalink: style/event.css
   img.inline-logo {
     width: 15vw;
     height: auto;
+    min-width: 68px;
+    min-height: 90px;
   }
 
   .welcome-text {
@@ -91,5 +93,33 @@ permalink: style/event.css
 
   a {
     color: #d5a713;
+  }
+}
+
+
+@media (max-width: 456px) {
+  #title {
+    min-width: 190px;
+    max-width: 200px;
+    text-align: left;
+
+    img.inline-logo {
+      float: right;
+      margin-left: 10px;
+    }
+
+    .title-extras {
+      position: static;
+    }
+
+    #title-preface {
+      display: block;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  #title-date .day-of-week {
+    display: none;
   }
 }

@@ -503,6 +503,16 @@ div.links-top {
   justify-content: center;
 }
 
+@media (min-width: 768px) {
+  ul.logo {
+    width: fit-content !important;
+
+    div {
+      white-space: nowrap;
+    }
+  }
+}
+
 ul.nav-links {
   display: none;
   margin: 0;

@@ -28,22 +28,35 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <section class="nav" data-position="100">
   <div class="nav nav-component--outer links-top   component-wrapper">
-    <div class="links-component--background bg sib"></div>
-    <ul class="nav-links logo" style="justify-content: flex-start">
+    <ul class="nav-links logo">
       <li class="brand-name">
         <div class="h-font h3">{{title}}</div>
       </li>
     </ul>
     <label for="drop" class="toggle">Menu</label><input type="checkbox" id="drop">
     <ul class="nav-links" style="justify-content: flex-end;">
-      <li><a href="http://registration.brewoahu.com/" class="mdi mdi-account-plus upper"><span>Register Now</span></a></li>
-      <li><a href="http://event.brewoahu.com/" class="mdi mdi-calendar"><span>Award Ceremony</span></a></li>
+      {{#unless hideHome}}
+        <li><a href="http://www.brewoahu.com/" class="mdi mdi-home upper"><span>Home</span></a></li>
+      {{/unless}}
+      <li><a href="http://registration.brewoahu.com/" class="mdi mdi-account-plus upper"><span>Register</span></a></li>
+      {{#unless hideAwards}}
+        <li><a href="http://event.brewoahu.com/" class="mdi mdi-calendar"><span>Award Ceremony</span></a></li>
+      {{/unless}}
       <li><a href="http://www.brewoahu.com/#location" class="mdi mdi-map-marker"><span>Location</span></a></li>
       <li><a href="http://results2018.brewoahu.com/" class="mdi mdi-format-list-numbers"><span>2018 Results</span></a></li>
     </ul>
   </div>
 </section>
 {{{content}}}
+<section id="location" class="map" data-position="109">
+  <div class="map-component--component-wrapper component-wrapper">
+    <div class="map-component--inner">
+      <div class="map-iframe-wrapper">
+        <iframe width="100%" height="400" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJG4-kc2RuAHwRleHoDCmral4&key={{environment.googleMapsApiKey}}" allowfullscreen="allowfullscreen"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
 <section class="footer-new" data-position="112">
   <div class="footer footer-component--outer component-wrapper">
     <div class="bg sib "></div>
